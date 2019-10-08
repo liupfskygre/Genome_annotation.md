@@ -22,6 +22,14 @@ Methanogens_cleanDB_26Spet2019_dRep.ar122.summary.tsv
 screen -S DRAM_MGdb89
 source /opt/Miniconda2/miniconda2/bin/activate DRAM
 DRAM.py annotate -i '/home/projects/Wetlands/2018_sampling/Methanog_targeted_coassembly/Methanogens_final_dRep_clean_db/Methanogens_cleanDB_26Spet2019_dRep/dereplicated_genomes/*.fa' -o ./DRAM_MGdb89_annotations --threads 24 --checkm_quality ./Methanogens_cleanDB_26Spet2019_dRep_checkm_summary.txt --gtdb_taxonomy ./gtdbtk_out/Methanogens_cleanDB_26Spet2019_dRep.ar122.summary.tsv &>DRAM_MGdb89.log
+
+#done 7-OCT-2019
+DRAM_MGdb89_annotations
+DRAM.py summarize_genomes -i ./annotations.tsv -o ./genome_summaries --trna_path ./trnas.tsv
+##
+#/home/projects/Wetlands/2018_sampling/Methanog_targeted_coassembly/Methanogens_final_dRep_clean_db/Methanogens_cleanDB_26Spet2019_dRep/dereplicated_genomes/DRAM_MGdb89_annotations/genome_summaries
+(DRAM) [liupf@zenith genome_summaries]$ ls
+#genome_stats.tsv  genome_summary.xlsx  heatmap.html
 ```
 
 #examples
