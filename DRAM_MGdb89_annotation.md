@@ -19,7 +19,8 @@ Methanogens_cleanDB_26Spet2019_dRep_checkm_summary.txt
 #due to gtdbtk, bac and arc is separated, way to combine?
 Methanogens_cleanDB_26Spet2019_dRep.ar122.summary.tsv 
 
-screen -S DRAM_MGdb89
+#run again with 
+screen -r DRAM_MGdb89
 source /opt/Miniconda2/miniconda2/bin/activate DRAM
 DRAM.py annotate -i '/home/projects/Wetlands/2018_sampling/Methanog_targeted_coassembly/Methanogens_final_dRep_clean_db/Methanogens_cleanDB_26Spet2019_dRep/dereplicated_genomes/*.fa' -o ./DRAM_MGdb89_annotations --threads 24 --checkm_quality ./Methanogens_cleanDB_26Spet2019_dRep_checkm_summary.txt --gtdb_taxonomy ./gtdbtk_out/Methanogens_cleanDB_26Spet2019_dRep.ar122.summary.tsv &>DRAM_MGdb89.log
 
@@ -32,6 +33,15 @@ DRAM.py summarize_genomes -i ./annotations.tsv -o ./genome_summaries --trna_path
 #genome_stats.tsv  genome_summary.xlsx  heatmap.html
 ```
 
+#run again with 2500 mini length
+```
+screen -r DRAM_MGdb89
+source /opt/Miniconda2/miniconda2/bin/activate DRAM
+DRAM.py annotate -i '/home/projects/Wetlands/2018_sampling/Methanog_targeted_coassembly/Methanogens_final_dRep_clean_db/Methanogens_cleanDB_26Spet2019_dRep/dereplicated_genomes/*.fa' -o ./DRAM_MGdb89_25k_annotations --threads 12 --min_contig_size 2500 --checkm_quality ./Methanogens_cleanDB_26Spet2019_dRep_checkm_summary.txt --gtdb_taxonomy ./gtdbtk_out/Methanogens_cleanDB_26Spet2019_dRep.ar122.summary.tsv &>DRAM_MGdb89_2500.log
+```
+
+
+
 ## compare the annotation with hmmsearch 
 ```
 cd /home/projects/Wetlands/2018_sampling/Methanog_targeted_coassembly/Methanogens_final_dRep_clean_db/Methanogens_cleanDB_26Spet2019_dRep/dereplicated_genomes/DRAM_MGdb89_annotations
@@ -41,6 +51,25 @@ cd /home/projects/Wetlands/2018_sampling/Methanog_targeted_coassembly/Methanogen
 grep -E 'K00399|Coenzyme-B sulfoethylthiotransferase|methyl-coenzyme M reductase alpha subunit|mcrA' annotations.tsv>DRAM_MGdb89_annotations_mcrA.tsv
 
 grep -E 'K00399|K00402|K00401|Coenzyme-B sulfoethylthiotransferase|methyl-coenzyme M reductase' annotations.tsv >DRAM_MGdb89_annotations_mcrABG.tsv
+
+
+```
+
+```
+#for the three mcrA not detected by DRAM, seems the whole contigs are missing
+# May_M1_C1_D6_30Gb_idba_metabat.50.fa_scaffold_27472 missing in the annotation file?
+grep 'scaffold_27472' annotations.tsv
+grep 'k121_839968' annotations.tsv
+grep 'k121_34766687_2' annotations.tsv
+
+grep 'scaffold_27472' genes.faa
+
+grep 'k121_839968' genes.faa
+grep 'k121_34766687' genes.faa
+
+#this is a miss annotation from hmm search
+O3C3D3_DDIG_MN.56
+grep 'k121_1821637_3’ annotations.tsv: Dihydrodipicolinate reductase, C-terminus [PF05173.14]; Dihydrodipicolinate reductase, N-terminus [PF01113.20]
 
 
 ```
