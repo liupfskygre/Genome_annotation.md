@@ -32,6 +32,18 @@ DRAM.py summarize_genomes -i ./annotations.tsv -o ./genome_summaries --trna_path
 #genome_stats.tsv  genome_summary.xlsx  heatmap.html
 ```
 
+## compare the annotation with hmmsearch 
+```
+cd /home/projects/Wetlands/2018_sampling/Methanog_targeted_coassembly/Methanogens_final_dRep_clean_db/Methanogens_cleanDB_26Spet2019_dRep/dereplicated_genomes/DRAM_MGdb89_annotations
+
+#mcrA, K00309, mcrB, K00401, mcrG, K00402
+[liupf@zenith DRAM_MGdb89_annotations]$ grep -E 'K00399' annotations.tsv
+[liupf@zenith DRAM_MGdb89_annotations]$ grep -E 'K00399|K00402|K00401' annotations.tsv |wc -l
+
+
+```
+
+
 #examples
 ```
 source /opt/Miniconda2/miniconda2/bin/activate DRAM
