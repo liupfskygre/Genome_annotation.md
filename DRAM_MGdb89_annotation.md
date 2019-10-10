@@ -40,7 +40,7 @@ cd /home/projects/Wetlands/2018_sampling/Methanog_targeted_coassembly/Methanogen
 
 grep -E 'K00399|Coenzyme-B sulfoethylthiotransferase|methyl-coenzyme M reductase alpha subunit|mcrA' annotations.tsv>DRAM_MGdb89_annotations_mcrA.tsv
 
-grep -E 'K00399|K00402|K00401' annotations.tsv >DRAM_MGdb89_annotations_mcrABG.tsv
+grep -E 'K00399|K00402|K00401|Coenzyme-B sulfoethylthiotransferase|methyl-coenzyme M reductase' annotations.tsv >DRAM_MGdb89_annotations_mcrABG.tsv
 
 
 ```
