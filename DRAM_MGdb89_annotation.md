@@ -37,8 +37,10 @@ DRAM.py summarize_genomes -i ./annotations.tsv -o ./genome_summaries --trna_path
 cd /home/projects/Wetlands/2018_sampling/Methanog_targeted_coassembly/Methanogens_final_dRep_clean_db/Methanogens_cleanDB_26Spet2019_dRep/dereplicated_genomes/DRAM_MGdb89_annotations
 
 #mcrA, K00309, mcrB, K00401, mcrG, K00402
-[liupf@zenith DRAM_MGdb89_annotations]$ grep -E 'K00399' annotations.tsv
-[liupf@zenith DRAM_MGdb89_annotations]$ grep -E 'K00399|K00402|K00401' annotations.tsv |wc -l
+
+grep -E 'K00399|Coenzyme-B sulfoethylthiotransferase|methyl-coenzyme M reductase alpha subunit|mcrA' annotations.tsv>DRAM_MGdb89_annotations_mcrA.tsv
+
+grep -E 'K00399|K00402|K00401' annotations.tsv >DRAM_MGdb89_annotations_mcrABG.tsv
 
 
 ```
