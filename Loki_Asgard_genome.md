@@ -138,6 +138,7 @@ refinem outliers ./O3C3D4_DDIG_MN.839_stats_output/scaffold_stats.tsv O3C3D4_DDI
 ```
 
 #DFAST
+#done
 ```
 
 
@@ -145,6 +146,7 @@ refinem outliers ./O3C3D4_DDIG_MN.839_stats_output/scaffold_stats.tsv O3C3D4_DDI
 
 
 #eggnog
+#done
 ```
 /Users/pengfeiliu/A_Wrighton_lab/Wetland_project/OWC_metaG_2014_2018/OWC_wetland_methanogens_database/Genome_annotations_Methanogens/Lokiarchaeia/Asgardarchaeota_Lokiarchaeia_MAGs 
 
@@ -154,5 +156,12 @@ prodigal -i O3C3D3_DDIG_MN.671.fa -p meta -a O3C3D3_DDIG_MN.671_prodigal.fa
 prodigal -i O3C3D4_DDIG_MN.839.fa -p meta -a O3C3D4_DDIG_MN.839_prodigal.fa
 prodigal -i O3C3D4_DDIG_metabat.474.fa -p meta -a O3C3D4_DDIG_metabat.474_prodigal.fa
 
+
+```
+
+
+#
+#Blast to search link contigs in metagenomes??
+```
 
 ```
