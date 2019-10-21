@@ -1,5 +1,12 @@
 ## Loki_asgard MAGs from OWC genomes annotations
 
+#inspect DRAM results
+```
+
+
+```
+
+
 #MAGs from d__Archaea;p__Asgardarchaeota;c__Lokiarchaeia;o__;f__;g__;s__ in OWC
 ```
 #summit
