@@ -78,11 +78,62 @@ done
 
 #transfer data to Mac and use Anvio
 
+## 839
+ls -1 *.bam > sorted_bam.txt
+for sample in $(cat sorted_bam.txt)
+do 
+anvi-init-bam $sample -o "${sample%.*}"_index.bam
+done
+
+#creat
+anvi-gen-contigs-database -f O3C3D4_DDIG_MN.839.fa -n 'Loki_anvio'
+anvi-run-hmms -c contigs.db
+
+#profile
+for bam in *sorted_index.bam
+do 
+anvi-profile -c contigs.db -i $bam  -o ./"${bam%.*}" -T 2 
+done
+#
+anvi-merge */PROFILE.db -o Loki_merged_profile -c contigs.db --sample-name Loki_merged_profile
+
+#collection from outside
+grep '>' O3C3D4_DDIG_MN.839.fa > seq_header.txt
+sed -i -e 's/>//g' seq_header.txt
+sed -i -e 's/$/\tMAGs_from_megahit/g' seq_header.txt
+
+#import collections
+anvi-import-collection -C Meta_collection -p Loki_merged_profile/PROFILE.db -c contigs.db seq_header.txt --contigs-mode
+
+#summary
+anvi-summarize -p Loki_merged_profile/PROFILE.db -c contigs.db -C Meta_collection -o Before_Refine_summary
+
+#anvio refine
+anvi-refine -p Loki_merged_profile/PROFILE.db -c contigs.db -C Meta_collection -b MAGs_from_megahit
+anvi-summarize -p Loki_merged_profile/PROFILE.db -c contigs.db -C Meta_collection -o After_refined_summary 
+
 ```
 
 #refineM on Asgard
 ```
 cd /home/projects/Wetlands/2018_sampling/Methanog_targeted_coassembly/Methanogens_final_dRep_clean_db/Asgardarchaeota_Lokiarchaeia
+
+#
+cd /home/projects/Wetlands/2018_sampling/Methanog_targeted_coassembly/Methanogens_final_dRep_clean_db/Asgardarchaeota_Lokiarchaeia/O3C3D4_DDIG_MN.839_bbmap_out
+for file in O3C3D4_DDIG_MN.839_OWC_*.bam
+do
+samtools index $file
+done
+
+refinem scaffold_stats -c 2 -x fa  O3C3D4_DDIG_MN.839.fa ./ O3C3D4_DDIG_MN.839_stats_output O3C3D4_DDIG_MN.839_OWC_*.bam
+
+refinem outliers ./O3C3D4_DDIG_MN.839_stats_output/scaffold_stats.tsv O3C3D4_DDIG_MN.839_outlier_output_no_cov
+
+##in addition, use the cov_correlation, 0.6
+refinem outliers ./O3C3D4_DDIG_MN.839_stats_output/scaffold_stats.tsv O3C3D4_DDIG_MN.839_outlier_output_cov6 --cov_corr 0.6
+
+#output more than 400 outliers, but the contamination value of CheckM is as low as 1.5%?
+# very hard to confirm the real contaminations?
 
 ```
 
