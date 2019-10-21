@@ -47,8 +47,6 @@ O3C3D4_DDIG_metabat.474.fa; with mcr
 #cd /scratch/summit/liupf@colostate.edu/Methangoens_db_Cp50Ctl25_Anvio/
 
 sbatch run_bbmap_summit_MetaG16_Mg24_2.sh metaG16_raw_reads.txt O3C3D4_DDIG_metabat.474 O3C3D4_DDIG_metabat.474.fa 
-Submitted batch job 3344756
-
 
 #d__Archaea;p__Asgardarchaeota;c__Lokiarchaeia;o__;f__;g__;s__
 
@@ -66,7 +64,19 @@ sbatch run_bbmap_summit_MetaG16_Mg24_2.sh metaG16_raw_reads.txt O3D3D3_DDIG_mega
 sbatch run_bbmap_summit_MetaG16_Mg24_2.sh metaG16_raw_reads.txt O3C3D4_DDIG_MN.839 O3C3D4_DDIG_MN.839.fa
 sbatch run_bbmap_summit_MetaG16_Mg24_2.sh metaG16_raw_reads.txt O3C3D3_DDIG_MN.671 O3C3D3_DDIG_MN.671.fa
 
+#transfer to zenith
 
+#sort sam file
+for file in *.sam
+do
+echo "${file%.*}"
+samtools view -@ 6 -bS $file > "${file%.*}".bam
+samtools sort -@ 6 "${file%.*}".bam > "${file%.*}".sorted.bam
+rm $file
+rm "${file%.*}".bam
+done
+
+#transfer data to Mac and use Anvio
 
 ```
 
