@@ -159,6 +159,14 @@ prodigal -i O3C3D4_DDIG_metabat.474.fa -p meta -a O3C3D4_DDIG_metabat.474_prodig
 
 ```
 
+#Amphor2
+```
+for file in *renamed.fa
+do
+/home/projects/Wetlands/2018_sampling/scripts/run_SCG.sh $file
+done 
+
+```
 
 #
 #Blast to search link contigs in metagenomes??
