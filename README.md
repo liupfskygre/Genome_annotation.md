@@ -2,6 +2,15 @@
 May use DRAM et al. tools to annotate genomes or MAGs
 
 
+1. use DRAM to do annotation, check annotation with KO
+2. mapping KO in KEGG mapper (https://www.genome.jp/kegg/mapper.html), reconstruct pathway
+3. check genes without KO, fill pathway gaps
+4. verify the gene predictions based gene cluster, operon, and further homolog search (blast/hmmsearch)
+5. build subsystem/module style SOM excel table for further checking (methanogensis et al.)
+6, verify using eggnog and draft (both have similar annotation results)
+
+
+
 
 
 #specific targeted annotations
