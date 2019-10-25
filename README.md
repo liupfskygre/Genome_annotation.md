@@ -1,4 +1,15 @@
 # Genome_annotation.md
+
+#Genome annotation highlight references
+```
+1. Seitz, K. W. et al. Asgard archaea capable of anaerobic hydrocarbon cycling. Nat. Commun. 10, (2019).
+#database based and homology search based genome annotation, inludes many mannual database curation and verifcation, methods well described
+
+```
+
+
+
+
 May use DRAM et al. tools to annotate genomes or MAGs
 
 
