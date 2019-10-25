@@ -1,5 +1,13 @@
 ## Loki_asgard MAGs from OWC genomes annotations
 
+#verify the classifcation of Loki genomes with mcr
+#might be Helarchaeota, which was not inlucded in GDB
+```
+
+```
+
+
+
 #inspect DRAM results
 ```
 
@@ -178,3 +186,6 @@ screen -S Amphor2
 ```
 
 ```
+
+
+#
