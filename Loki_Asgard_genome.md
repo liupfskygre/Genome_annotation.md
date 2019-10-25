@@ -3,7 +3,30 @@
 #verify the classifcation of Loki genomes with mcr
 #might be Helarchaeota, which was not inlucded in GDB
 ```
+cd /home/projects/Wetlands/2018_sampling/Methanog_targeted_coassembly/Methanogens_final_dRep_clean_db/Asgardarchaeota_Lokiarchaeia
 
+#copy Thor from OWC to current
+for file in Aug_M1C1D5_MC3a.78 O3C3D3_DDIG_MN.740 O3C3D3_metabat_w_DDIG_2.5k.282 O3C3D4_DDIG_metabat.312 O3C3D4_DDIG_metabat.602 O3C3D3_idba.40
+do
+cp /home/projects/Wetlands/All_genomes/OWC_MAGs_dRep_19Sept19/OWC_MAGs_19Sept19_dRep_/dereplicated_genomes/${file}.fa ./
+done
+
+#transfer genomes from NCBI to zenith
+screen -S de_novo_wf
+gtdbtk de_novo_wf --genome_dir ./ --ar122_ms --outgroup_taxon p__Nanoarchaeota --out_dir Methanogens_cleanDB89_OCt3_tree -x fa --cpus 6
+
+gtdbtk
+screen -S gtdbtk
+/home/projects/Wetlands/2018_sampling/scripts/run_gtdbtk_t6.sh Asgard_Loki
+
+screen -S checkM
+/home/projects/Wetlands/2018_sampling/scripts/run_checkm.sh Asgard_Loki fa ./ ./Asgard_Loki_checkM
+
+
+#merge
+python /home/projects/Wetlands/2018_sampling/scripts/add_gtdbtk_tax_to_checkm.py OWC_substrative_co_megahit_Deep_checkm_summary.txt gtdbtk_out/OWC_substrative_co_megahit_Deep.bac120.summary.tsv gtdbtk_out/OWC_substrative_co_megahit_Deep.ar122.summary.tsv >OWC_substrative_co_megahit_Deep_checkm_gtdbtk_summary.txt
+
+#
 ```
 
 
