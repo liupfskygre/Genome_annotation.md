@@ -8,6 +8,9 @@
 summary each pathways in Excel
 https://www.genome.jp/kegg/tool/map_pathway.html
 
+
+#check genomes without KO number, Rank A, B, C
+
 #3, validation with DFAST and EGGNOG
 
 #4, detailed annotations
