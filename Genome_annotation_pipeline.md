@@ -38,3 +38,9 @@ gap filling of important pathways wihtout KO numbers
 
 #7, custom database?
 
+
+#checking list
+```
+# tRNA list
+
+```
