@@ -1,0 +1,5 @@
+#
+
+
+#
+/Users/pengfeiliu/A_Wrighton_lab/Wetland_project/OWC_metaG_2014_2018/OWC_wetland_methanogens_database/Genome_annotations_Methanogens/Methanothrix
