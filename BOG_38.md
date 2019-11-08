@@ -3,6 +3,7 @@
 #
 
 #download 50 genomes from NCBI
+```
 cd /home/projects/Wetlands/2018_sampling/Methanog_targeted_coassembly/Methanogens_final_dRep_clean_db/BOG_38_assemblies
 
 #wget ftp://ftp.ncbi.nlm.nih.gov/genomes/refseq/archaea/assembly_summary.txt 
@@ -27,3 +28,4 @@ done
 #de compress, keep orignal file with -k 
 # gunzip -k *.gz
 gunzip *.gz
+```
