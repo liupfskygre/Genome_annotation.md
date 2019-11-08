@@ -1,7 +1,7 @@
 ## Loki_asgard MAGs from OWC genomes annotations
 
 #verify the classifcation of Loki genomes with mcr
-#might be Helarchaeota, which was not inlucded in GDB
+## might be Helarchaeota, which was not inlucded in GDB
 ```
 cd /home/projects/Wetlands/2018_sampling/Methanog_targeted_coassembly/Methanogens_final_dRep_clean_db/Asgardarchaeota_Lokiarchaeia
 
