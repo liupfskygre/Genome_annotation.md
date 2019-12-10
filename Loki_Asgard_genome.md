@@ -94,8 +94,9 @@ mkdir Asgardarchaeota_Lokiarchaeia
 cd /home/projects/Wetlands/2018_sampling/Methanog_targeted_coassembly/Methanogens_final_dRep_clean_db/Asgardarchaeota_Lokiarchaeia
 # copy these genomes into this folder
 
-O3D3D3_DDIG_megahit.356 #deRep one
 O3C3D4_DDIG_MN.839 #deRep one, should be the same as 474 
+
+O3D3D3_DDIG_megahit.356 #deRep one
 O3C3D3_DDIG_MN.671
 
 sbatch run_bbmap_summit_MetaG16_Mg24_2.sh metaG16_raw_reads.txt O3D3D3_DDIG_megahit.356 O3D3D3_DDIG_megahit.356.fa
@@ -189,7 +190,6 @@ refinem outliers ./O3C3D4_DDIG_MN.839_stats_output/scaffold_stats.tsv O3C3D4_DDI
 /Users/pengfeiliu/A_Wrighton_lab/Wetland_project/OWC_metaG_2014_2018/OWC_wetland_methanogens_database/Genome_annotations_Methanogens/Lokiarchaeia/Asgardarchaeota_Lokiarchaeia_MAGs 
 
 prodigal -i O3D3D3_DDIG_megahit.356.fa -p meta -a O3D3D3_DDIG_megahit.356_prodigal.faa
-
 prodigal -i O3C3D3_DDIG_MN.671.fa -p meta -a O3C3D3_DDIG_MN.671_prodigal.fa
 prodigal -i O3C3D4_DDIG_MN.839.fa -p meta -a O3C3D4_DDIG_MN.839_prodigal.fa
 prodigal -i O3C3D4_DDIG_metabat.474.fa -p meta -a O3C3D4_DDIG_metabat.474_prodigal.fa
