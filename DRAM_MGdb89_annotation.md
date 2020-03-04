@@ -42,6 +42,9 @@ DRAM.py annotate -i '/home/projects/Wetlands/2018_sampling/Methanog_targeted_coa
 cd 
 DRAM.py summarize_genomes -i ./annotations.tsv -o ./genome_summaries --trna_path ./trnas.tsv
 
+#
+DRAM.py distill -i ./annotations.tsv -o ./genome_liquor --trna_path ./trnas.tsv
+
 ```
 
 
