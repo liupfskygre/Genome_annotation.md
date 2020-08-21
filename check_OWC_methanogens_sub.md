@@ -133,16 +133,37 @@ cat O3D3_metabatSS.Anvio.87_DRAM_annotation.txt|cut -f1,9 -d$'\t' > O3D3_metabat
 ```
 
 
-#adding one genomes; Aug-20-2020
+#adding one genomes; Aug-20-2020;==>O3C3D3_metabat_w_DDIG_2-5kb.49 
+
 ```
 #checked MAGs with new annotation are tem put here
 /home/projects/Wetlands/All_genomes/OWC_MAGs_dRep_19Sept19/OWC_MAGs_19Sept19_dRep_/relabeled_dereplicated_genomes/liu_checking_MAGs
 
-O3C3D3_metabat_w_DDIG_2-5kb.49 
+#on MAC 
+cd /Users/pengfeiliu/A_Wrighton_lab/Wetland_project/modeling\ of\ methanogens/genome-sub-checking/DRAM_OUT_tsv/KEGG_Decoder
 
 #1, first adding to keggdocer file and rerun all genomes
+awk -F '\t' '$8!=""' O3C3D3_metabat_w_DDIG_2-5kb.49_annotations_r95.tsv >O3C3D3_metabat_w_DDIG_2-5kb.49_annotations_r95_wKO.tsv
 
+cat O3C3D3_metabat_w_DDIG_2-5kb.49_annotations_r95_wKO.tsv|cut -f2,8 -d$'\t' >O3C3D3_metabat_w_DDIG_2-5kb.49_annotations_r95_k028.tsv
+
+O3C3D3_metabat_w_DDIG_2-5kb.49_annotations_r95.tsv
 #2, go through the excel annotation file and pick evidences for this one
 
+cat O3C3D3_metabat_w_DDIG_2-5kb.49_annotations_r95_k028.tsv Genome_DRAM_grdbtk_rel95_subChecking_w_KO28.txt Genome_DRAM_grdbtk_DB89_subChecking_w_KO29.txt > Genome_DRAM_subChecking_w_KO.txt
+
+
+
+sed -i -e 's/\,/\t/g' Genome_DRAM_subChecking_w_KO.txt
+awk -F '\t' 'BEGIN{ORS=RS="\n"} {for(a=2; a<=NF;) print $1"\t"$(a++)}' Genome_DRAM_subChecking_w_KO.txt>Genome_DRAM_subChecking_w_KO_fix.txt
+
+sed -i -e '/fasta/d' Genome_DRAM_subChecking_w_KO_fix.txt
+
+sed -i -e 's/_/;/g' Genome_DRAM_subChecking_w_KO_fix.txt
+
+awk '{print $1"_"NR"\t"$2}' Genome_DRAM_subChecking_w_KO_fix.txt > Genome_DRAM_subChecking_w_KO_fix_wNR.txt
+
+conda activate Decoder
+KEGG-decoder --input Genome_DRAM_subChecking_w_KO_fix_wNR.txt --output Checking12_FUNCTION_OUT.list --vizoption interactive
 
 ```
