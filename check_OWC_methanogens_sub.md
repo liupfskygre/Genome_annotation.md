@@ -131,3 +131,18 @@ cat O3C3D3_DDIG_MN_Anvio.967_DRAM_annotation.txt|cut -f1,9 -d$'\t' > O3C3D3_DDIG
 cat O3D3_metabatSS.Anvio.87_DRAM_annotation.txt|cut -f1,9 -d$'\t' > O3D3_metabatSS.Anvio.87_DRAM_annotation_k28.txt
 
 ```
+
+
+#adding one genomes; Aug-20-2020
+```
+#checked MAGs with new annotation are tem put here
+/home/projects/Wetlands/All_genomes/OWC_MAGs_dRep_19Sept19/OWC_MAGs_19Sept19_dRep_/relabeled_dereplicated_genomes/liu_checking_MAGs
+
+O3C3D3_metabat_w_DDIG_2-5kb.49 
+
+#1, first adding to keggdocer file and rerun all genomes
+
+#2, go through the excel annotation file and pick evidences for this one
+
+
+```
